@@ -1,0 +1,163 @@
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+*, *:before, *:after {
+   box-sizing: border-box;
+}
+
+body {
+   width: 100%;
+   height: 100%;
+
+   font-family: "Montserrat", sans-serif;
+   font-size: 16px;
+}
+
+.slider {
+   position: relative;
+
+   display: flex;
+   align-items: center;
+
+   width: 500px;
+
+   margin: 0 auto;
+   margin-top: 50px;
+   padding: 40px 15px;
+
+   background-color: #EBECF0;
+}
+
+.list__wrap {
+   overflow: hidden;
+   max-height: 300px;
+   margin: 0 15px;
+}
+.list {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   list-style: none; 
+   
+   transition: transform 0.65s ease-in-out;
+}
+.item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   flex: 0 0 100%;
+
+   padding: 5px 10px;
+   
+   background-color: #FFF;
+}
+.item img {
+   display: block;
+   flex: 1 1 100%;
+   max-width: 100%;
+}
+
+a {
+   display: inline-block;
+
+   padding: 20px 10px;
+
+   outline: 0;
+   cursor: pointer;
+   color:#AE1100;
+   background-color: #EBECF0;
+   box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+   transition: box-shadow 0.2s ease-in-out;
+}
+a:focus {
+   box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+a:hover {
+   box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+a:active {
+   box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+.slider span {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+}
+.slider span .toggle-button {
+   margin-right: 3px;
+}
+
+.toggle-button {
+   position: relative;
+   display: inline-block;
+   width: 40px;
+   height: 21px;
+   vertical-align: top;
+   background: #FFF;
+   border: 2px solid #bbc1e1;
+   border-radius: 16px;
+   outline: none;
+   cursor: pointer;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
+.toggle-button::after {
+   content: "";
+
+   display: inline-block;
+   position: absolute;
+   left: 1px;
+   top: 0;
+
+   width: 16px;
+   height: 16px;
+
+   background-color: blue;
+   border-radius: 50%;
+}
+.toggle-button:checked::after {
+   left: auto;
+   right: 1px;
+   background-color: #FFF;  
+}
+.toggle-button:checked {
+   background-color: blue;
+}
+
+.dots {
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+
+   display: flex;
+   align-items: center;
+   margin: 5px 0;
+   list-style: none;
+}
+.dots .dot:last-child {
+   margin-right: 0;
+}
+.dot {
+   width: 8px;
+   height: 8px;
+
+   margin-right: 2px;
+   border-radius: 100%;
+   
+   background-color: blue;
+
+   transition: all 0.2s ease-in-out;
+}
+.dot__active {
+   width: 11px;
+   height: 11px;
+
+   background-color:#AE1100;
+}
