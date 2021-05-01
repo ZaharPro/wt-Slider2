@@ -20,8 +20,9 @@ const cb = slider.querySelector('.toggle-button')
 const items = list.querySelectorAll('.item')
 const dots = dots0.querySelectorAll('.dot')
 
-let index = 0
-dots[index].classList.toggle('dot__active')
+let index = localStorage.getItem('index')
+index = index == null ? 0 : parseInt(index);
+
 dots.forEach((dot, i) => {
    dot.addEventListener('click', function () {
       setSlide(i)
@@ -47,8 +48,9 @@ function prev() {
 function setSlide(n) {
    dots[index].classList.remove('dot__active')
    index = n
-   list.style.transform = `translateX(-${index * list.clientWidth}px)`
+   list.style.transform = `translateX(calc(-${index} * 100%))`
    dots[index].classList.add('dot__active')
+   localStorage.setItem('index', index)
 }
 
 
@@ -79,3 +81,4 @@ let flag = localStorage.getItem('auto')
 cb.checked = (flag == null) || (flag == 'true')
 cb.addEventListener('click', cbClick)
 cbClick()
+setSlide(index)
